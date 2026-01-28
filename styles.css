@@ -1,0 +1,1062 @@
+:root {
+    /* Palette: Cozy Monochrome + Wood/Leather */
+    --c-bg: #FAF9F6;
+    /* Off-white/Bone */
+    --c-surface: #FFFFFF;
+    --c-text-main: #1D1D1F;
+    /* Graphite */
+    --c-text-muted: #585858;
+    --c-accent-wood: #8D6E63;
+    /* Warm Wood/Leather */
+    --c-accent-hover: #5D4037;
+    /* Darker Leather */
+
+    /* Typography */
+    --font-head: 'Philosopher', serif;
+    --font-body: 'Mulish', sans-serif;
+    /* "Muli" is now Mulish on Google Fonts */
+
+    /* Spacing */
+    --space-s: 1rem;
+    --space-m: 2rem;
+    --space-l: 4rem;
+    --space-xl: 8rem;
+
+    /* Components */
+    --radius-soft: 8px;
+    --radius-pill: 50px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--c-bg);
+    color: var(--c-text-main);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Typography Overrides */
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--font-head);
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--c-text-main);
+}
+
+h1 {
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+}
+
+h2 {
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+p {
+    color: var(--c-text-muted);
+    font-size: 1.05rem;
+}
+
+/* Utilities */
+.placeholder-warm {
+    background: linear-gradient(135deg, #EFEBE9 0%, #D7CCC8 100%);
+    /* Simulates a warm, sunlit surface */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Buttons */
+.btn-primary {
+    display: inline-block;
+    background-color: var(--c-text-main);
+    color: #FFF;
+    padding: 1rem 2rem;
+    border-radius: var(--radius-pill);
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--c-accent-wood);
+}
+
+.btn-primary.large {
+    padding: 1.2rem 3rem;
+    font-size: 1.2rem;
+}
+
+.btn-primary.small {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 5%;
+    position: absolute;
+    top: 0;
+    /* Removed Glassmorphism */
+    background: transparent;
+    border-bottom: none;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.logo {
+    font-family: var(--font-head);
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--c-text-main);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.nav-links .btn-nav {
+    background-color: var(--c-text-main);
+    color: #fff;
+    padding: 0.5rem 1.2rem;
+    border-radius: var(--radius-pill);
+}
+
+/* Hero */
+.hero {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    /* Align left */
+    text-align: left;
+    position: relative;
+    margin-bottom: var(--space-l);
+    overflow: hidden;
+    /* Contain the breathing background */
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60%;
+    height: 100%;
+    /* Soft gradient: light warm beige -> transparent */
+    background: linear-gradient(to right, #FAF9F6 40%, rgba(250, 249, 246, 0) 100%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 8rem;
+    /* Shifted down to clear navbar */
+    left: 0;
+    width: 100%;
+    height: calc(100% - 8rem);
+    /* Adjust height */
+    z-index: -1;
+    background-size: cover;
+    background-position: center;
+    /* Flip image horizontally */
+    transform: scaleX(-1);
+    /* Gradient mask: Adjusted for flipped coordinates to keep fade on Screen Left */
+    /* to right (in flipped coords) goes Screen Right -> Screen Left */
+    /* We want Screen Right (Start) Opaque, Screen Left (End) Faded */
+    mask-image: linear-gradient(to right, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0.2) 100%);
+    -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0.2) 100%);
+    animation: breathe 10s ease-in-out infinite alternate;
+}
+
+@keyframes breathe {
+    0% {
+        transform: scaleX(-1) scale(1);
+    }
+
+    100% {
+        transform: scaleX(-1) scale(1.05);
+    }
+}
+
+.hero-content {
+    max-width: 600px;
+    padding-left: 8%;
+    /* Left alignment spacing */
+    /* Removed glassmorphism per new design */
+    background: transparent;
+    backdrop-filter: none;
+    box-shadow: none;
+    animation: fadeIn 1s ease-out;
+    margin-top: 10rem;
+    position: relative;
+    z-index: 1;
+    /* Ensure text is above gradient */
+}
+
+.hero-sub {
+    font-size: 1.3rem;
+    margin: 1.5rem 0 2rem;
+}
+
+.hero-cta-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+}
+
+.shipping-note {
+    font-size: 0.8rem;
+    color: var(--c-text-muted);
+    margin-top: 0.5rem;
+}
+
+/* Intro Grid */
+.intro-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1rem;
+    padding: 0 5%;
+    margin-bottom: var(--space-xl);
+    height: 600px;
+}
+
+.intro-item {
+    border-radius: var(--radius-soft);
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    padding: 2rem;
+}
+
+.intro-item .overlay-text {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 1.5rem;
+    border-radius: var(--radius-soft);
+}
+
+/* Pinned Benefits Section */
+.benefits {
+    /* Large height for scrolling space */
+    height: 300vh;
+    position: relative;
+    padding: 0;
+    margin-bottom: var(--space-xl);
+}
+
+.pinned-content-wrapper {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    /* overflow: hidden; Removed to prevent clipping */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 6rem 5% 2rem;
+    background: #FFF;
+    box-sizing: border-box;
+    /* Ensure background breaks content below */
+}
+
+/* Revert to compact layout */
+.interactive-features {
+    display: flex;
+    justify-content: space-between;
+    gap: 4rem;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.feature-list-container {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.feature-item {
+    padding: 1.25rem;
+    border-left: 2px solid #E0E0E0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-height: auto;
+    /* Reset min-height */
+    opacity: 0.3;
+    /* Start dimmed */
+}
+
+.feature-item.active {
+    opacity: 1;
+    border-left-color: var(--c-accent-wood);
+    padding-left: 1.75rem;
+    transform: scale(1.02);
+    /* Slight pop */
+    border-left-width: 4px;
+}
+
+.feature-item h4 {
+    font-size: 1.5rem;
+    /* Larger for scrollytelling */
+    margin-bottom: 0.5rem;
+}
+
+.feature-item p {
+    font-size: 1rem;
+    color: var(--c-text-muted);
+    margin: 0;
+}
+
+.feature-visual-container {
+    width: 50%;
+    height: 50vh;
+    /* Normal height */
+    max-height: 500px;
+    /* Cap it */
+    min-height: 300px;
+    /* Floor it */
+    border-radius: var(--radius-soft);
+    overflow: hidden;
+    position: relative;
+    /* Not sticky itself, the parent is sticky */
+    top: auto;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+}
+
+.feature-visual-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Lifestyle Video Section */
+.lifestyle-video-section {
+    width: 100%;
+    height: 90vh;
+    position: relative;
+    margin-bottom: var(--space-xl);
+    overflow: hidden;
+}
+
+.lifestyle-video-section video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-overlay {
+    position: absolute;
+    bottom: 10%;
+    left: 5%;
+    color: #FFF;
+    max-width: 500px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.video-overlay h2 {
+    color: #FFF;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Story */
+.story-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 4rem;
+    padding: 0 5%;
+    margin-bottom: var(--space-xl);
+}
+
+.story-visual {
+    height: 500px;
+    border-radius: var(--radius-soft);
+}
+
+.link-arrow {
+    display: inline-block;
+    margin-top: 1rem;
+    color: var(--c-accent-wood);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 2px solid currentColor;
+}
+
+/* How It Works */
+.how-it-works {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 2rem;
+    padding: 0 5%;
+    margin-bottom: var(--space-xl);
+}
+
+.hiw-visual {
+    height: 400px;
+    border-radius: var(--radius-soft);
+    position: relative;
+    overflow: hidden;
+    /* Ensure image stays within bounds */
+}
+
+.hotspot {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: var(--c-accent-wood);
+    border-radius: 50%;
+    border: 3px solid #FFF;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.hotspot:hover {
+    transform: scale(1.2);
+}
+
+.hiw-text h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.feature-list {
+    list-style: none;
+    margin-top: 1.5rem;
+}
+
+.feature-list li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Powerbank Section */
+.powerbank-section {
+    padding: 0 5%;
+    margin-bottom: var(--space-xl);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    /* Increased gap for breathability */
+    align-items: start;
+}
+
+.powerbank-content {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    /* Aligns the flex children (paragraphs) to the right */
+}
+
+.powerbank-content h3 {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+.powerbank-content p {
+    max-width: 400px;
+    /* Prevents lines from being too long/hard to read */
+    margin-bottom: 1rem;
+}
+
+.powerbank-content .secondary-text {
+    font-size: 0.95rem;
+    opacity: 0.8;
+}
+
+.powerbank-visual {
+    position: relative;
+}
+
+.powerbank-visual img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-soft);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* Specs & FAQ */
+.specs-container {
+    padding: 0 5%;
+    margin-bottom: var(--space-xl);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+}
+
+.spec-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+    border-bottom: 1px solid #E0E0E0;
+}
+
+.spec-label {
+    font-weight: 600;
+    color: var(--c-text-main);
+}
+
+.faq-accordion details {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid #E0E0E0;
+    cursor: pointer;
+}
+
+.faq-accordion summary {
+    font-weight: 600;
+    list-style: none;
+    /* Hide default triangle if wanted, style otherwise */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-accordion summary::after {
+    content: '+';
+    font-size: 1.5rem;
+}
+
+.faq-accordion details[open] summary::after {
+    content: '-';
+}
+
+/* Final CTA */
+.final-cta {
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.final-cta-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+    /* Proper spacing between Text and Button */
+}
+
+
+/* Fixed orphan styles - Assuming these belonged to a deleted class or were misplaced */
+/* width: 80px; height: 80px; object-fit: cover; border-radius: 50%; margin: 0 auto 1.5rem; display: block; */
+
+
+/* Sticky Mobile CTA */
+.sticky-mobile-cta {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    padding: 0.75rem 1.5rem;
+    border-radius: 100px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* Space out left and right */
+    gap: 2rem;
+    z-index: 999;
+    width: 96%;
+    /* Covers almost whole width */
+    max-width: none;
+    /* Removed cap */
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    z-index: 999;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s;
+    opacity: 0;
+}
+
+.sticky-mobile-cta.visible {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+
+/* Hide when reaching footer */
+.sticky-mobile-cta.hide-at-bottom {
+    transform: translateX(-50%) translateY(100px) !important;
+    opacity: 0 !important;
+}
+
+.product-info-mini {
+    display: flex;
+    flex-direction: column;
+}
+
+.product-info-mini .name {
+    font-weight: 700;
+    font-family: var(--font-head);
+}
+
+.product-info-mini .price {
+    font-size: 0.9rem;
+    color: var(--c-text-muted);
+}
+
+/* Footer */
+footer.site-footer {
+    background: #111;
+    /* Darker background */
+    color: #FFF;
+    padding: 0 5% var(--space-xl) 5%;
+    display: block;
+}
+
+.footer-divider {
+    width: 100%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    margin-bottom: var(--space-l);
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    /* Brand takes more space */
+    gap: 4rem;
+}
+
+.brand-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.footer-logo {
+    font-family: 'Philosopher', sans-serif;
+    font-size: 2.5rem;
+    color: #FFF;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.copyright {
+    color: #666;
+    font-size: 0.9rem;
+    margin-top: auto;
+}
+
+.footer-col h4 {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.5rem;
+    color: #888;
+}
+
+footer a {
+    color: #CCC;
+    display: block;
+    margin-bottom: 0.8rem;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+footer a:hover {
+    color: #FFF;
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem 1rem;
+    }
+
+    .brand-col {
+        grid-column: 1 / -1;
+        margin-bottom: 1rem;
+    }
+}
+
+footer a {
+    color: #AAA;
+    display: block;
+    margin-bottom: 0.5rem;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #FFF;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Scroll Animation Targets */
+section.fade-section .hiw-text,
+section.fade-section .hiw-visual,
+section.fade-section .powerbank-content,
+section.fade-section .powerbank-visual {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+section.fade-section.visible .hiw-text,
+section.fade-section.visible .hiw-visual,
+section.fade-section.visible .powerbank-content,
+section.fade-section.visible .powerbank-visual {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered Delay */
+section.fade-section.visible .hiw-visual,
+section.fade-section.visible .powerbank-visual {
+    transition-delay: 0.2s;
+}
+
+/* Update for Hero Quote */
+.hero-quote {
+    font-family: var(--font-head);
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 2.5rem;
+    color: var(--c-text-muted);
+    max-width: 800px;
+    margin-left: 0;
+    margin-right: auto;
+}
+
+.section-header {
+    text-align: center !important;
+    /* Force center */
+    margin-bottom: var(--space-l);
+    max-width: 800px;
+    /* Wider to avoid cramping */
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Center children flex items */
+}
+
+.intro-item .overlay-text.quote-style h3 {
+    font-family: var(--font-head);
+    font-size: 1.8rem;
+    font-style: italic;
+    margin-bottom: 0;
+}
+
+/* Horizontal Layout Showcase */
+.mixed-showcase.horizontal-showcase {
+    height: auto;
+    min-height: auto;
+    display: block;
+    padding: var(--space-xl) 0;
+    gap: 0;
+}
+
+.section-header-center {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 3rem;
+    padding: 0 5%;
+}
+
+.section-header-center h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.horizontal-scroll-container {
+    width: 100%;
+    overflow-x: auto;
+    padding: 2rem 5% 6rem;
+    /* Bottom padding for shadow/scale space */
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE */
+    display: flex;
+    justify-content: flex-start;
+}
+
+.horizontal-scroll-container::-webkit-scrollbar {
+    display: none;
+}
+
+.horizontal-scroll-track {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    /* Ensure there is enough space on sides to center the first/last items */
+    padding: 0 25vw;
+}
+
+.scroll-item {
+    width: 300px;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    border-radius: var(--radius-soft);
+    flex-shrink: 0;
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    opacity: 0.6;
+    transform: scale(0.9);
+}
+
+.scroll-item.focused {
+    opacity: 1;
+    transform: scale(1.1);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+}
+
+/* Testimonials / Loved by Users */
+.testimonials-section {
+    padding: var(--space-xl) 0;
+    overflow: hidden;
+    background: var(--c-bg);
+}
+
+.marquee-header {
+    text-align: center;
+    margin-bottom: var(--space-l);
+}
+
+.marquee-track-container {
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+/* Full Width Video Section */
+.full-width-video-section {
+    width: 100%;
+    margin-bottom: var(--space-xl);
+    background: #000;
+    overflow: hidden;
+    position: relative;
+}
+
+.video-container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    background: #000;
+}
+
+.video-container video {
+    width: 100%;
+    height: auto;
+    max-height: 90vh;
+    /* Prevent it from being taller than the viewport */
+    display: block;
+    object-fit: contain;
+    /* Ensure the whole video is visible */
+}
+
+.marquee-track {
+    display: flex;
+    gap: 2rem;
+    width: max-content;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.marquee-track.move-left {
+    animation-name: scrollLeft;
+    animation-duration: 40s;
+}
+
+.marquee-track.move-right {
+    animation-name: scrollRight;
+    animation-duration: 45s;
+}
+
+.review-card {
+    background: var(--c-surface);
+    padding: 2rem;
+    border-radius: var(--radius-soft);
+    min-width: 300px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.review-text {
+    font-size: 1.1rem;
+    color: var(--c-text-main);
+    margin-bottom: 1rem;
+    font-style: italic;
+    font-family: var(--font-head);
+}
+
+.review-author {
+    font-size: 0.9rem;
+    color: var(--c-text-muted);
+    font-weight: 600;
+}
+
+@keyframes scrollLeft {
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes scrollRight {
+    from {
+        transform: translateX(-50%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+/* Testimonials / Loved by Users */
+.testimonials-section {
+    padding: var(--space-xl) 0;
+    overflow: hidden;
+    background: var(--c-bg);
+}
+
+.marquee-header {
+    text-align: center;
+    margin-bottom: var(--space-l);
+}
+
+.marquee-track-container {
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    padding: 2rem 0;
+    /* Add padding to prevent shadow clipping */
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.marquee-track {
+    display: flex;
+    gap: 2rem;
+    width: max-content;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.marquee-track.move-left {
+    animation-name: scrollLeft;
+    animation-duration: 40s;
+}
+
+.marquee-track.move-right {
+    animation-name: scrollRight;
+    animation-duration: 45s;
+}
+
+.review-card {
+    background: var(--c-surface);
+    padding: 2rem;
+    border-radius: var(--radius-soft);
+    min-width: 300px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.review-text {
+    font-size: 1.1rem;
+    color: var(--c-text-main);
+    margin-bottom: 1rem;
+    font-style: italic;
+    font-family: var(--font-head);
+}
+
+.review-author {
+    font-size: 0.9rem;
+    color: var(--c-text-muted);
+    font-weight: 600;
+}
+
+@keyframes scrollLeft {
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes scrollRight {
+    from {
+        transform: translateX(-50%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .mixed-showcase {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+
+    .continuous-col {
+        height: 400px;
+    }
+
+    .intro-grid {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+
+    /* ... rest of mobile styles ... */
+}

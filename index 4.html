@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Owly - The premium wellness device that fits your life.">
+    <title>Owly | Premium Wellness</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;600&family=Philosopher:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">Owly</div>
+        <div class="nav-links">
+            <a href="#benefits">Overview</a>
+            <a href="#specs">Specs</a>
+            <a href="#buy" class="btn-nav">Shop Now</a>
+        </div>
+    </nav>
+
+    <!-- 1. Hero Section -->
+    <section class="hero">
+        <!-- Replaced placeholder with Hero Image -->
+        <div class="hero-bg"
+            style="background-image: url('hero-product.png'); background-size: cover; background-position: center;">
+        </div>
+        <div class="hero-content">
+            <h1>Relaxation Re-engineered.</h1>
+            <h2 class="hero-quote"><strong>“A smart hands free massager”</strong></h2>
+            <p class="hero-sub">It is a compact device that rests naturally against your body applying targetted
+                pressure to relieve tension in your back and neck <strong>while you sit for work.”</strong></p>
+            <div class="hero-cta-group">
+                <a href="#buy" class="btn-primary">Shop Owly - $299</a>
+                <span class="shipping-note">Free Shipping & 30-Day Returns</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sticky Mobile CTA (Hidden on Desktop) -->
+    <div class="sticky-mobile-cta">
+        <div class="product-info-mini">
+            <span class="name">Owly</span>
+            <span class="price">$299</span>
+        </div>
+        <a href="#buy" class="btn-primary small">Add to Cart</a>
+    </div>
+
+    <!-- 2. Product Showcase / Intro -->
+    <!-- 2. Product Showcase / Full Screen Video Carousel -->
+    <section class="full-screen-showcase">
+        <div class="showcase-container placeholder-warm" id="interiors-carousel">
+            <div class="carousel-slide active" style="background-image: url('desk1.jpg');">
+                <div class="showcase-content">
+                    <h3>Designed for Interiors</h3>
+                    <p>Fits perfectly in your living room or workspace.</p>
+                </div>
+            </div>
+            <div class="carousel-slide" style="background-image: url('desk2.jpg');">
+                <div class="showcase-content">
+                    <h3>Work form Anywhere</h3>
+                    <p>Elevate your home office setup.</p>
+                </div>
+            </div>
+            <div class="carousel-slide" style="background-image: url('chair%201.jpg');">
+                <div class="showcase-content">
+                    <h3>Premium Comfort</h3>
+                    <p>Relax in style with premium materials.</p>
+                </div>
+            </div>
+
+            <!-- Indicators for carousel feel -->
+            <div class="carousel-indicators">
+                <span class="indicator active" data-slide="0"></span>
+                <span class="indicator" data-slide="1"></span>
+                <span class="indicator" data-slide="2"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Key Benefits -->
+    <section class="benefits" id="benefits">
+        <div class="section-header">
+            <h2>Quietly Powerful</h2>
+            <p>This quiet hands free massager lets you enjoy continuous relief without disrupting your day- whether you
+                are at your desk on the couch or on the go.</p>
+        </div>
+
+        <div class="benefit-grid">
+            <div class="benefit-card">
+                <div class="benefit-icon placeholder-warm"></div>
+                <h4>Smart Sensing</h4>
+                <p>Detects your body's pressure points automatically.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon placeholder-warm"></div>
+                <h4>Wireless Freedom</h4>
+                <p>Up to 6 hours of use on a single charge.</p>
+            </div>
+            <div class="benefit-card">
+                <img src="internal components high res.jpg" alt="Memory Foam" class="benefit-image">
+                <h4>Cushioned for Comfort</h4>
+                <p>Soft memory foam that naturally contours to your body.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon placeholder-warm"></div>
+                <h4>Universal Fit</h4>
+                <p>Adapts to any chair, sofa, or lounge.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Story / Philosophy -->
+    <section class="story-section">
+        <div class="story-content">
+            <h2>Not a Gadget. <br>A Companion.</h2>
+            <p>Most wellness devices look like medical equipment. Owly is designed to be a piece of furniture you're
+                proud to display. Crafted with natural woods, linen, and leather, it brings warmth to your daily
+                routine.</p>
+            <a href="#specs" class="link-arrow">View Technical Specs</a>
+        </div>
+        <div class="story-visual">
+            <img src="gadget-companion.png" alt="Owly as a companion"
+                style="width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius-soft);">
+        </div>
+    </section>
+
+    <!-- 5. Interactive Demo / How it works -->
+    <section class="how-it-works">
+        <div class="hiw-visual">
+            <img src="product-in-use.png" alt="Owly in use"
+                style="width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius-soft);">
+            <!-- Annotation markers -->
+            <div class="hotspot" style="top: 25%; left: 45%;" data-tooltip="Control Panel"></div>
+            <div class="hotspot" style="top: 45%; left: 50%;" data-tooltip="Massage Nodes"></div>
+        </div>
+        <div class="hiw-text">
+            <h3>Intuitive Control</h3>
+            <p>One touch to start. Owly learns your preferences over time.</p>
+            <ul class="feature-list">
+                <li>Auto-start pressure sensors</li>
+                <li>Heat therapy integration</li>
+                <li>3 Intensity levels</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 5b. Powerbank Feature -->
+    <section class="powerbank-section">
+        <div class="powerbank-content">
+            <h3>Powered wherever you are</h3>
+            <p>A powerbank controlled product.</p>
+        </div>
+        <div class="powerbank-visual">
+            <img src="powerbank-feature.png" alt="Powerbank Controlled">
+        </div>
+    </section>
+
+    <!-- 6. Gallery -->
+    <section class="gallery">
+        <div class="gallery-track">
+            <div class="gallery-img placeholder-warm"></div>
+            <div class="gallery-img placeholder-warm"></div>
+            <div class="gallery-img placeholder-warm"></div>
+            <div class="gallery-img placeholder-warm"></div>
+        </div>
+    </section>
+
+    <!-- 6b. Testimonials Marquee -->
+    <section class="testimonials-section">
+        <div class="marquee-header">
+            <h3>Loved by Users</h3>
+        </div>
+
+        <!-- Row 1: Moves Left -->
+        <div class="marquee-track-container">
+            <div class="marquee-track move-left">
+                <!-- Group 1 -->
+                <div class="review-card">
+                    <p class="review-text">"Finally, a massager that looks good."</p>
+                    <span class="review-author">Sarah J.</span>
+                </div>
+                <div class="review-card">
+                    <p class="review-text">"Fits my Herman Miller perfectly."</p>
+                    <span class="review-author">David L.</span>
+                </div>
+                <div class="review-card">
+                    <p class="review-text">"Silence is golden."</p>
+                    <span class="review-author">Elena R.</span>
+                </div>
+                <div class="review-card">
+                    <p class="review-text">"A game changer for WFH."</p>
+                    <span class="review-author">Mark T.</span>
+                </div>
+                <!-- Duplicate for seamless loop -->
+                <div class="review-card">
+                    <p class="review-text">"Finally, a massager that looks good."</p>
+                    <span class="review-author">Sarah J.</span>
+                </div>
+                <div class="review-card">
+                    <p class="review-text">"Fits my Herman Miller perfectly."</p>
+                    <span class="review-author">David L.</span>
+                </div>
+                <div class="review-card">
+                    <p class="review-text">"Silence is golden."</p>
+                    <span class="review-author">Elena R.</span>
+                </div>
+                <div class="review-card">
+                    <p class="review-text">"A game changer for WFH."</p>
+                    <span class="review-author">Mark T.</span>
+                </div>
+                <div class="review-card">
+                    <p class="review-text">"Finally, a massager that looks good."</p>
+                    <span class="review-author">Sarah J.</span>
+                </div>
+                <div class="review-card">
+                    <p class="review-text">"Fits my Herman Miller perfectly."</p>
+                    <span class="review-author">David L.</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Row 2: Moves Right -->
+        <div class="marquee-track-container">
+            <div class="marquee-track move-right">
+                <!-- Group 1 -->
+                <div class="review-card">
+                    <p class="review-text">"Worth every penny."</p>
+                    <span class="review-author">James P.</span>
+                </div>
+                <div class="review-card">
+                    <p class="review-text">"Beautifully crafted."</p>
+                    <span class="review-author">Anna K.</span>
+                </div>
+                <div class="review-card">
+                    <p class="review-text">"I use it every single day."</p>
+                    <span class="review-author">Tom H.</span>
+                </div>
+                <div class="review-card">
+                    <p class="review-text">"Best investment for my back."</p>
+                    <span class="review-author">Sophie M.</span>
+                </div>
+                <!-- Duplicate for seamless loop -->
+                <div class="review-card">
+                    <p class="review-text">"Worth every penny."</p>
+                    <span class="review-author">James P.</span>
+                </div>
+                <div class="review-card">
+                    <p class="review-text">"Beautifully crafted."</p>
+                    <span class="review-author">Anna K.</span>
+                </div>
+                <div class="review-card">
+                    <p class="review-text">"I use it every single day."</p>
+                    <span class="review-author">Tom H.</span>
+                </div>
+                <div class="review-card">
+                    <p class="review-text">"Best investment for my back."</p>
+                    <span class="review-author">Sophie M.</span>
+                </div>
+                <div class="review-card">
+                    <p class="review-text">"Worth every penny."</p>
+                    <span class="review-author">James P.</span>
+                </div>
+                <div class="review-card">
+                    <p class="review-text">"Beautifully crafted."</p>
+                    <span class="review-author">Anna K.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Specs & FAQ -->
+    <section class="specs-container" id="specs">
+        <div class="specs-table">
+            <h3>Technical Specifications</h3>
+            <div class="spec-row">
+                <span class="spec-label">Dimensions</span>
+                <span class="spec-value">16" x 16" x 4"</span>
+            </div>
+            <div class="spec-row">
+                <span class="spec-label">Weight</span>
+                <span class="spec-value">3.2 lbs</span>
+            </div>
+            <div class="spec-row">
+                <span class="spec-label">Battery</span>
+                <span class="spec-value">5000mAh (USB-C Rechargeable)</span>
+            </div>
+            <div class="spec-row">
+                <span class="spec-label">Materials</span>
+                <span class="spec-value">Neoprene, TPU</span>
+            </div>
+        </div>
+
+        <div class="faq-accordion">
+            <h3>Frequently Asked Questions</h3>
+            <details>
+                <summary>Is the cover removable?</summary>
+                <p>Yes, the wool cover is removable and dry-clean only.</p>
+            </details>
+            <details>
+                <summary>How long does it take to charge?</summary>
+                <p>A full charge takes approximately 2 hours via USB-C.</p>
+            </details>
+            <details>
+                <summary>Is there a warranty?</summary>
+                <p>Owly comes with a 2-year limited warranty.</p>
+            </details>
+        </div>
+    </section>
+
+    <!-- 8. Final CTA -->
+    <section class="final-cta placeholder-warm" id="buy">
+        <div class="final-cta-content">
+            <h2>Elevate Your Work from Home.</h2>
+            <a href="#" class="btn-primary large">Order Owly Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-col">
+            <span class="footer-logo">Owly</span>
+        </div>
+        <div class="footer-col">
+            <a href="#">Support</a>
+            <a href="#">Warranty</a>
+            <a href="#">Contact</a>
+        </div>
+        <div class="footer-col">
+            <a href="#">Instagram</a>
+            <a href="#">Twitter</a>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
